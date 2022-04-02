@@ -1,0 +1,10 @@
+<h2>{{ selectedRecipe.name }}</h2>
+<h3>składniki</h3>
+<ul>
+  <li *ngFor="let ingredient of selectedRecipe.ingredients; let i = index">
+    {{ selectedRecipe.ingredients[i].name }} -
+    {{ selectedRecipe.ingredients[i].value }}
+  </li>
+</ul>
+<h3>sposób przygotowania</h3>
+<p>{{ selectedRecipe.description }}</p>

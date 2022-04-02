@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-interface Recipe {
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { RecipesApiService } from '../recipes-api.service';
+export interface Recipe {
   name: string;
   id: number;
   description: string[];
@@ -15,14 +17,21 @@ interface Ingredients {
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.scss'],
 })
-export class RecipeListComponent implements OnInit {
+export class RecipeListComponent implements OnInit, OnDestroy {
   public recipes: Recipe[] = [];
+  private subs = new Subscription();
+  //recipe:Recipe
 
-  constructor() {}
+  constructor(private recipesApiService: RecipesApiService) {}
 
   ngOnInit(): void {
-    fetch('http://localhost:3000/recipes')
-      .then((res) => res.json())
-      .then((recipes: Recipe[]) => (this.recipes = recipes));
+    const sub = this.recipesApiService.getRecipes().subscribe((recipes) => (this.recipes = recipes));
+    this.subs.add(sub);
+  }
+  onSelected(recipe: Recipe) {
+    this.recipesApiService.recipeSelected.emit(recipe);
+  }
+  ngOnDestroy(): void {
+    this.subs.unsubscribe();
   }
 }

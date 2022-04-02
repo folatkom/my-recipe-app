@@ -1,9 +1,15 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { EventEmitter, Injectable } from '@angular/core';
+import { Recipe } from './recipe-list/recipe-list.component';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RecipesApiService {
+  recipeSelected = new EventEmitter<Recipe>();
+  constructor(private fetchService: HttpClient) {}
 
-  constructor() { }
+  public getRecipes() {
+    return this.fetchService.get<Recipe[]>('http://localhost:3000/recipes');
+  }
 }
