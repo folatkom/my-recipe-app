@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { CommunicationService } from '../communication.service';
 import { RecipesApiService } from '../recipes-api.service';
 export interface Recipe {
   name: string;
@@ -22,14 +23,14 @@ export class RecipeListComponent implements OnInit, OnDestroy {
   private subs = new Subscription();
   //recipe:Recipe
 
-  constructor(private recipesApiService: RecipesApiService) {}
+  constructor(private recipesApiService: RecipesApiService, private communicationService: CommunicationService) {}
 
   ngOnInit(): void {
     const sub = this.recipesApiService.getRecipes().subscribe((recipes) => (this.recipes = recipes));
     this.subs.add(sub);
   }
   onSelected(recipe: Recipe) {
-    this.recipesApiService.recipeSelected.emit(recipe);
+    this.communicationService.recipeSelected.emit(recipe);
   }
   ngOnDestroy(): void {
     this.subs.unsubscribe();

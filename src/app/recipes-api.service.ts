@@ -6,7 +6,6 @@ import { Recipe } from './recipe-list/recipe-list.component';
   providedIn: 'root',
 })
 export class RecipesApiService {
-  recipeSelected = new EventEmitter<Recipe>();
   constructor(private fetchService: HttpClient) {}
 
   public getRecipes() {
