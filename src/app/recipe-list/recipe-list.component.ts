@@ -1,10 +1,10 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
+import { Subscription, of, Observable } from 'rxjs';
 import { CommunicationService } from '../communication.service';
 import { RecipesApiService } from '../recipes-api.service';
 export interface Recipe {
   name: string;
-  id: number;
+  id?: number;
   description: string[];
   rating: number;
   ingredients: Ingredients[];
@@ -20,19 +20,18 @@ interface Ingredients {
 })
 export class RecipeListComponent implements OnInit, OnDestroy {
   public recipes: Recipe[] = [];
-  private subs = new Subscription();
-  //recipe:Recipe
+  sub: Subscription;
 
   constructor(private recipesApiService: RecipesApiService, private communicationService: CommunicationService) {}
 
   ngOnInit(): void {
-    const sub = this.recipesApiService.getRecipes().subscribe((recipes) => (this.recipes = recipes));
-    this.subs.add(sub);
+    this.sub = this.recipesApiService.getRecipes().subscribe((recipes) => (this.recipes = recipes));
   }
+
   onSelected(recipe: Recipe) {
     this.communicationService.recipeSelected.emit(recipe);
   }
   ngOnDestroy(): void {
-    this.subs.unsubscribe();
+    this.sub.unsubscribe();
   }
 }

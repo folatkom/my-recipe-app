@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Recipe } from '../recipe-list/recipe-list.component';
 
 @Component({
   selector: 'app-side-panel',
@@ -7,5 +6,5 @@ import { Recipe } from '../recipe-list/recipe-list.component';
   styleUrls: ['./side-panel.component.scss'],
 })
 export class SidePanelComponent {
-  panel = 'addRecipe';
+  panel = 'recipeDetails';
 }

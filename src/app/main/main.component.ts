@@ -6,6 +6,4 @@ import { RecipesApiService } from '../recipes-api.service';
   templateUrl: './main.component.html',
   styleUrls: ['./main.component.scss'],
 })
-export class MainComponent {
-  constructor(private recipesApiService: RecipesApiService) {}
-}
+export class MainComponent {}

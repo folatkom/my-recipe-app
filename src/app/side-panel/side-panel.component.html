@@ -14,5 +14,5 @@
 </div>
 
 <p *ngIf="panel === 'addRecipe'; then add; else details"></p>
-<ng-template #add><p>taarrarar</p></ng-template>
+<ng-template #add><app-add-recipe></app-add-recipe></ng-template>
 <ng-template #details><app-recipe-details></app-recipe-details></ng-template>

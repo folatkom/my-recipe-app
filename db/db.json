@@ -33,7 +33,7 @@
         "Rozbijamy jajka i dodajemy (uwaga! bez skorupki!)",
         "Mieszamy rozbite jajka i czekamy na jajecznice"
       ],
-      "ingredients:": [
+      "ingredients": [
         {
           "name": "jajka",
           "value": "3 szt."
@@ -78,7 +78,7 @@
         "Rozbijamy jajka i dodajemy (uwaga! bez skorupki!)",
         "Mieszamy rozbite jajka i czekamy na jajecznice"
       ],
-      "ingredients:": [
+      "ingredients": [
         {
           "name": "jajka",
           "value": "3 szt."
@@ -123,7 +123,7 @@
         "Rozbijamy jajka i dodajemy (uwaga! bez skorupki!)",
         "Mieszamy rozbite jajka i czekamy na jajecznice"
       ],
-      "ingredients:": [
+      "ingredients": [
         {
           "name": "jajka",
           "value": "3 szt."
