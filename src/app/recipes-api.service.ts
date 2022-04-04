@@ -17,6 +17,6 @@ export class RecipesApiService {
   }
   public sort(): Observable<Recipe[]> {
     const myParams = new HttpParams().set('_sort', 'name').set('_order', 'desc');
-    return this.http.get<Recipe[]>('http://localhost:3000/recipes', { params: myParams }).pipe(tap(console.log));
+    return this.http.get<Recipe[]>('http://localhost:3000/recipes', { params: myParams });
   }
 }

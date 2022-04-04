@@ -27,7 +27,7 @@ export class RecipeListComponent implements OnInit {
     this.recipes = this.recipesApiService.getRecipes();
   }
   sort() {
-    this.recipesApiService.sort().subscribe();
+    this.recipes = this.recipesApiService.sort();
   }
   onSelected(recipe: Recipe) {
     this.communicationService.recipeSelected.next(recipe);
