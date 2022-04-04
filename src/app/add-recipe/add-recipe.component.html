@@ -1,16 +1,22 @@
 <form (ngSubmit)="post()" #form="ngForm">
-  Nazwa przepisu
+  <label>Nazwa przepisu</label>
   <div>
     <input
       type="text"
       placeholder="np. Pizza"
       [(ngModel)]="newRecipe.name"
       name="name"
+      minlength="3"
       required
+      #name="ngModel"
     />
+    <ng-container *ngIf="name.invalid">
+      <p *ngIf="name.dirty">Za krótka nazwa przepisu</p>
+      <p *ngIf="name.pristine && name.touched">Pole obowiązkowe</p>
+    </ng-container>
   </div>
 
-  Składniki
+  <label>Składniki</label>
   <div>
     <input
       class="smallInput"
@@ -18,6 +24,7 @@
       placeholder="np. Mąka"
       [(ngModel)]="newRecipe.ingredients[0].name"
       name="ingredient0name"
+      #ingredient0name="ngModel"
       required
     />
     <input
@@ -26,8 +33,16 @@
       placeholder="np. 1 szklanka"
       [(ngModel)]="newRecipe.ingredients[0].value"
       name="ingredient0value"
+      #ingredient0value="ngModel"
       required
     />
+    <ng-container
+      *ngIf="
+        (ingredient0value.invalid && ingredient0value.touched) ||
+        (ingredient0name.invalid && ingredient0name.touched)
+      "
+      ><p>Pole obowiązkowe</p>
+    </ng-container>
   </div>
   <div>
     <input
@@ -63,15 +78,19 @@
   </div>
 
   <div>
-    Sposób przygotowania
+    <label>Sposób przygotowania</label>
     <div>
       <input
         type="text"
         placeholder="Krok 1"
         [(ngModel)]="newRecipe.description[0]"
         name="description0"
+        #description0="ngModel"
         required
       />
+      <ng-container *ngIf="description0.invalid && description0.touched"
+        ><p>Pole obowiązkowe</p>
+      </ng-container>
     </div>
     <div>
       <input
