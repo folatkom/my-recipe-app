@@ -46,94 +46,84 @@
       "rating": 5
     },
     {
-      "id": 1,
-      "name": "kluski z twarogiem",
-      "description": [
-        "Przygotowujemy garnek wody i solimy go",
-        "Gotujemy wodę",
-        "Gotujemy makaron",
-        "Do ugatowanego makaronu dodajemy twaróg"
-      ],
-      "ingredients": [
-        {
-          "name": "makaron",
-          "value": "250g"
-        },
-        {
-          "name": "sól",
-          "value": "szczypta"
-        },
-        {
-          "name": "twaróg",
-          "value": "150g"
-        }
-      ],
-      "rating": 4
+      "name": "Pizza",
+      "description": [],
+      "ingredients": [],
+      "rating": 3,
+      "id": 3
     },
     {
-      "id": 2,
-      "name": "jajecznica",
-      "description": [
-        "Rozpuszczamy masło na patelni",
-        "Rozbijamy jajka i dodajemy (uwaga! bez skorupki!)",
-        "Mieszamy rozbite jajka i czekamy na jajecznice"
-      ],
-      "ingredients": [
-        {
-          "name": "jajka",
-          "value": "3 szt."
-        },
-        {
-          "name": "masło",
-          "value": "łyżeczka"
-        }
-      ],
-      "rating": 5
+      "name": "ss",
+      "description": [],
+      "ingredients": [],
+      "rating": 3,
+      "id": 4
     },
     {
-      "id": 1,
-      "name": "kluski z twarogiem",
-      "description": [
-        "Przygotowujemy garnek wody i solimy go",
-        "Gotujemy wodę",
-        "Gotujemy makaron",
-        "Do ugatowanego makaronu dodajemy twaróg"
-      ],
-      "ingredients": [
-        {
-          "name": "makaron",
-          "value": "250g"
-        },
-        {
-          "name": "sól",
-          "value": "szczypta"
-        },
-        {
-          "name": "twaróg",
-          "value": "150g"
-        }
-      ],
-      "rating": 4
+      "name": "s",
+      "description": [],
+      "ingredients": [],
+      "rating": 3,
+      "id": 5
     },
     {
-      "id": 2,
-      "name": "jajecznica",
+      "name": "ss",
       "description": [
-        "Rozpuszczamy masło na patelni",
-        "Rozbijamy jajka i dodajemy (uwaga! bez skorupki!)",
-        "Mieszamy rozbite jajka i czekamy na jajecznice"
+        "s",
+        "a",
+        "s"
+      ],
+      "ingredients": [],
+      "rating": 3,
+      "id": 6
+    },
+    {
+      "name": "picka",
+      "description": [],
+      "ingredients": [
+        {
+          "name": "mąka",
+          "value": "1 szklanka"
+        }
+      ],
+      "rating": 3,
+      "id": 7
+    },
+    {
+      "name": "dd",
+      "description": [],
+      "ingredients": [
+        {
+          "name": "d",
+          "value": "d"
+        }
+      ],
+      "rating": 3,
+      "id": 8
+    },
+    {
+      "name": "d",
+      "description": [
+        "d",
+        "d",
+        "d"
       ],
       "ingredients": [
         {
-          "name": "jajka",
-          "value": "3 szt."
+          "name": "d",
+          "value": "d"
         },
         {
-          "name": "masło",
-          "value": "łyżeczka"
+          "name": "",
+          "value": ""
+        },
+        {
+          "name": "",
+          "value": ""
         }
       ],
-      "rating": 5
+      "rating": 3,
+      "id": 9
     }
   ],
   "users": []

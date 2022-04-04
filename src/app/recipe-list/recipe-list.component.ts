@@ -9,7 +9,7 @@ export interface Recipe {
   rating: number;
   ingredients: Ingredients[];
 }
-interface Ingredients {
+export interface Ingredients {
   name: string;
   value: string;
 }
@@ -24,10 +24,7 @@ export class RecipeListComponent implements OnInit {
   constructor(private recipesApiService: RecipesApiService, private communicationService: CommunicationService) {}
 
   ngOnInit(): void {
-    setTimeout(() => {
-      this.recipes = this.recipesApiService.getRecipes();
-    }, 500);
-    // this.recipes = this.recipesApiService.getRecipes();
+    this.recipes = this.recipesApiService.getRecipes();
   }
 
   onSelected(recipe: Recipe) {

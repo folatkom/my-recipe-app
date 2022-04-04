@@ -1,1 +1,91 @@
-<button (click)="post()">Dodaj przepis</button>
+<form (ngSubmit)="post()">
+  Nazwa przepisu
+  <div>
+    <input
+      type="text"
+      placeholder="np. Pizza"
+      [(ngModel)]="newRecipe.name"
+      name="name"
+    />
+  </div>
+
+  Składniki
+  <div>
+    <input
+      class="smallInput"
+      type="text"
+      placeholder="np. Mąka"
+      [(ngModel)]="newRecipe.ingredients[0].name"
+      name="ingredient0name"
+    />
+    <input
+      class="smallInput"
+      type="text"
+      placeholder="np. 1 szklanka"
+      [(ngModel)]="newRecipe.ingredients[0].value"
+      name="ingredient0value"
+    />
+  </div>
+  <div>
+    <input
+      class="smallInput"
+      type="text"
+      placeholder="np. Mąka"
+      [(ngModel)]="newRecipe.ingredients[1].name"
+      name="ingredient1name"
+    />
+    <input
+      class="smallInput"
+      type="text"
+      placeholder="np. 1 szklanka"
+      [(ngModel)]="newRecipe.ingredients[1].value"
+      name="ingredient1value"
+    />
+  </div>
+  <div>
+    <input
+      class="smallInput"
+      type="text"
+      placeholder="np. Mąka"
+      [(ngModel)]="newRecipe.ingredients[2].name"
+      name="ingredient2name"
+    />
+    <input
+      class="smallInput"
+      type="text"
+      placeholder="np. 1 szklanka"
+      [(ngModel)]="newRecipe.ingredients[2].value"
+      name="ingredient2value"
+    />
+  </div>
+
+  <div>
+    Sposób przygotowania
+    <div>
+      <input
+        type="text"
+        placeholder="Krok 1"
+        [(ngModel)]="newRecipe.description[0]"
+        name="description0"
+      />
+    </div>
+    <div>
+      <input
+        type="text"
+        placeholder="Krok 2"
+        [(ngModel)]="newRecipe.description[1]"
+        name="description1"
+      />
+    </div>
+    <div>
+      <input
+        type="text"
+        placeholder="Krok 3"
+        [(ngModel)]="newRecipe.description[2]"
+        name="description2"
+      />
+    </div>
+  </div>
+  <button type="submit">Dodaj przepis</button>
+  <button type="reset">Wyczyść formularz</button>
+</form>
