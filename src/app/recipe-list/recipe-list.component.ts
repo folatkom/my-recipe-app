@@ -26,7 +26,9 @@ export class RecipeListComponent implements OnInit {
   ngOnInit(): void {
     this.recipes = this.recipesApiService.getRecipes();
   }
-
+  sort() {
+    this.recipesApiService.sort().subscribe();
+  }
   onSelected(recipe: Recipe) {
     this.communicationService.recipeSelected.next(recipe);
   }

@@ -24,16 +24,6 @@ export class AddRecipeComponent implements OnInit, OnDestroy {
 
   post() {
     this.recipesApiService.addRecipes(this.newRecipe).subscribe();
-    this.newRecipe = {
-      name: '',
-      description: [],
-      ingredients: [
-        { name: '', value: '' },
-        { name: '', value: '' },
-        { name: '', value: '' },
-      ],
-      rating: 3,
-    };
   }
   ngOnDestroy(): void {}
 }

@@ -1,3 +1,4 @@
+<button (click)="sort()">Sortuj</button>
 <div *ngIf="recipes | async as recipes; else nolist">
   <div class="tiles">
     <a class="tile" *ngFor="let item of recipes" (click)="onSelected(item)">
