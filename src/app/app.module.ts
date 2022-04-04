@@ -8,10 +8,11 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { SidePanelComponent } from './side-panel/side-panel.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent, MainComponent, RecipeListComponent, SidePanelComponent, RecipeDetailsComponent, AddRecipeComponent],
-  imports: [BrowserModule, HttpClientModule],
+  imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })

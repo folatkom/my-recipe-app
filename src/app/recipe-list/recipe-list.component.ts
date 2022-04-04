@@ -24,7 +24,10 @@ export class RecipeListComponent implements OnInit {
   constructor(private recipesApiService: RecipesApiService, private communicationService: CommunicationService) {}
 
   ngOnInit(): void {
-    this.recipes = this.recipesApiService.getRecipes();
+    setTimeout(() => {
+      this.recipes = this.recipesApiService.getRecipes();
+    }, 500);
+    // this.recipes = this.recipesApiService.getRecipes();
   }
 
   onSelected(recipe: Recipe) {

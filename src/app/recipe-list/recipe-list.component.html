@@ -1,15 +1,15 @@
-<!-- <p *ngIf="!recipes.length">...loading</p> -->
-<!-- <div *ngIf="recipes.length"> -->
-<div class="tiles">
-  <button
-    class="tile"
-    *ngFor="let item of recipes | async"
-    (click)="onSelected(item)"
-  >
-    <div>{{ item.name }}</div>
-    <div>
-      <span *ngFor="let e of [].constructor(item.rating)">🍔</span>
-    </div>
-  </button>
+<div *ngIf="recipes | async as recipes; else nolist">
+  <div class="tiles">
+    <button
+      class="tile"
+      *ngFor="let item of recipes"
+      (click)="onSelected(item)"
+    >
+      <div>{{ item.name }}</div>
+      <div>
+        <span *ngFor="let e of [].constructor(item.rating)">🍔</span>
+      </div>
+    </button>
+  </div>
 </div>
-<!-- </div> -->
+<ng-template #nolist>...loading</ng-template>
