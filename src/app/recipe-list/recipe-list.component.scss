@@ -5,13 +5,18 @@ p {
   text-align: center;
 }
 .tiles {
-  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 10px;
+  grid-auto-rows: minmax(150px, auto);
 }
 .tile {
+  display: inline-block;
   width: 150px;
   height: 150px;
   background-color: rgb(152, 221, 221);
   text-align: center;
   border-radius: 10px;
+  padding: 20px;
   margin: 0 10px 10px 10px;
 }
