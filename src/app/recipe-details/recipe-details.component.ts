@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { CommunicationService } from '../communication.service';
 import { Recipe } from '../recipe-list/recipe-list.component';
 
@@ -8,12 +9,10 @@ import { Recipe } from '../recipe-list/recipe-list.component';
   styleUrls: ['./recipe-details.component.scss'],
 })
 export class RecipeDetailsComponent implements OnInit {
-  selectedRecipe: Recipe;
+  selectedRecipe: Observable<Recipe>;
   constructor(private communicationService: CommunicationService) {}
 
   ngOnInit() {
-    this.communicationService.recipeSelected.subscribe((recipe: Recipe) => {
-      this.selectedRecipe = recipe;
-    });
+    this.selectedRecipe = this.communicationService.recipeSelected;
   }
 }

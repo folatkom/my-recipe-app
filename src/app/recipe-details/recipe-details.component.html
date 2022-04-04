@@ -1,5 +1,4 @@
-<p *ngIf="!selectedRecipe">Wybierz przepis</p>
-<div *ngIf="selectedRecipe">
+<div *ngIf="selectedRecipe | async as selectedRecipe; else norecipe">
   <h2>{{ selectedRecipe.name | uppercase }}</h2>
   <h3>Składniki:</h3>
   <ul>
@@ -15,3 +14,4 @@
     </li>
   </ul>
 </div>
+<ng-template #norecipe>Wybierz przepis</ng-template>

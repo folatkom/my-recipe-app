@@ -18,20 +18,16 @@ interface Ingredients {
   templateUrl: './recipe-list.component.html',
   styleUrls: ['./recipe-list.component.scss'],
 })
-export class RecipeListComponent implements OnInit, OnDestroy {
-  public recipes: Recipe[] = [];
-  sub: Subscription;
+export class RecipeListComponent implements OnInit {
+  public recipes: Observable<Recipe[]>;
 
   constructor(private recipesApiService: RecipesApiService, private communicationService: CommunicationService) {}
 
   ngOnInit(): void {
-    this.sub = this.recipesApiService.getRecipes().subscribe((recipes) => (this.recipes = recipes));
+    this.recipes = this.recipesApiService.getRecipes();
   }
 
   onSelected(recipe: Recipe) {
-    this.communicationService.recipeSelected.emit(recipe);
-  }
-  ngOnDestroy(): void {
-    this.sub.unsubscribe();
+    this.communicationService.recipeSelected.next(recipe);
   }
 }
