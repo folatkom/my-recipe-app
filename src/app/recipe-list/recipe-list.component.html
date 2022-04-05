@@ -1,5 +1,5 @@
-<button (click)="sort()">Sortuj</button>
 <div *ngIf="recipes | async as recipes; else nolist">
+  <app-sort (sortBy)="sort($event)"></app-sort>
   <div class="tiles">
     <a class="tile" *ngFor="let item of recipes" (click)="onSelected(item)">
       <div>{{ item.name }}</div>

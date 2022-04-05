@@ -15,8 +15,28 @@ export class RecipesApiService {
   public addRecipes(newRecipe: Recipe) {
     return this.http.post('http://localhost:3000/recipes', newRecipe);
   }
-  public sort(): Observable<Recipe[]> {
+  public sortByNameDesc(): Observable<Recipe[]> {
     const myParams = new HttpParams().set('_sort', 'name').set('_order', 'desc');
+    return this.http.get<Recipe[]>('http://localhost:3000/recipes', { params: myParams });
+  }
+  public sortByNameAsc(): Observable<Recipe[]> {
+    const myParams = new HttpParams().set('_sort', 'name').set('_order', 'asc');
+    return this.http.get<Recipe[]>('http://localhost:3000/recipes', { params: myParams });
+  }
+  public sortByRatingDesc(): Observable<Recipe[]> {
+    const myParams = new HttpParams().set('_sort', 'rating').set('_order', 'desc');
+    return this.http.get<Recipe[]>('http://localhost:3000/recipes', { params: myParams });
+  }
+  public sortByRatingAsc(): Observable<Recipe[]> {
+    const myParams = new HttpParams().set('_sort', 'rating').set('_order', 'asc');
+    return this.http.get<Recipe[]>('http://localhost:3000/recipes', { params: myParams });
+  }
+  public sortByIdAsc(): Observable<Recipe[]> {
+    const myParams = new HttpParams().set('_sort', 'id').set('_order', 'asc');
+    return this.http.get<Recipe[]>('http://localhost:3000/recipes', { params: myParams });
+  }
+  public sortByIdDesc(): Observable<Recipe[]> {
+    const myParams = new HttpParams().set('_sort', 'id').set('_order', 'desc');
     return this.http.get<Recipe[]>('http://localhost:3000/recipes', { params: myParams });
   }
 }
