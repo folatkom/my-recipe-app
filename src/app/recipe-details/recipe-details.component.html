@@ -3,8 +3,10 @@
   <h3>Składniki:</h3>
   <ul>
     <li *ngFor="let ingredient of selectedRecipe.ingredients; let i = index">
-      {{ selectedRecipe.ingredients[i].name }} -
-      {{ selectedRecipe.ingredients[i].value }}
+      <ng-container *ngIf="selectedRecipe.ingredients[i].name">
+        {{ selectedRecipe.ingredients[i].name }} -
+        {{ selectedRecipe.ingredients[i].value }}
+      </ng-container>
     </li>
   </ul>
   <h3>Sposób przygotowania:</h3>

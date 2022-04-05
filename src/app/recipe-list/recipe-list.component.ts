@@ -19,6 +19,8 @@ export interface Ingredients {
   styleUrls: ['./recipe-list.component.scss'],
 })
 export class RecipeListComponent implements OnInit {
+  value: string = '';
+
   public recipes: Observable<Recipe[]>;
 
   constructor(private recipesApiService: RecipesApiService, private communicationService: CommunicationService) {}
@@ -26,6 +28,10 @@ export class RecipeListComponent implements OnInit {
   ngOnInit(): void {
     this.recipes = this.recipesApiService.getRecipes();
   }
+  browse() {
+    this.recipes = this.recipesApiService.browse(this.value);
+  }
+
   sort(sortBy: string) {
     switch (sortBy) {
       case 'nameDesc':
@@ -48,6 +54,7 @@ export class RecipeListComponent implements OnInit {
         break;
     }
   }
+
   onSelected(recipe: Recipe) {
     this.communicationService.recipeSelected.next(recipe);
   }

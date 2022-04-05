@@ -1,5 +1,12 @@
-<app-sort (sortBy)="sort($event)"></app-sort>
-<div id="container" *ngIf="recipes | async as recipes; else nolist">
+<div id="container1">
+  <form (ngSubmit)="browse()">
+    <input type="text" [(ngModel)]="value" name="value" />
+    <button type="submit">szukaj</button>
+  </form>
+
+  <app-sort (sortBy)="sort($event)"></app-sort>
+</div>
+<div id="container2" *ngIf="recipes | async as recipes; else nolist">
   <div class="tiles">
     <a class="tile" *ngFor="let item of recipes" (click)="onSelected(item)">
       <div>{{ item.name }}</div>

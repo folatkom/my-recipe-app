@@ -10,9 +10,10 @@ import { RecipeDetailsComponent } from './recipe-details/recipe-details.componen
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
 import { FormsModule } from '@angular/forms';
 import { SortComponent } from './sort/sort.component';
+import { BrowserComponent } from './browser/browser.component';
 
 @NgModule({
-  declarations: [AppComponent, MainComponent, RecipeListComponent, SidePanelComponent, RecipeDetailsComponent, AddRecipeComponent, SortComponent],
+  declarations: [AppComponent, MainComponent, RecipeListComponent, SidePanelComponent, RecipeDetailsComponent, AddRecipeComponent, SortComponent, BrowserComponent],
   imports: [BrowserModule, HttpClientModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
