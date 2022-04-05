@@ -1,13 +1,14 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sort',
   templateUrl: './sort.component.html',
   styleUrls: ['./sort.component.scss'],
 })
-export class SortComponent implements OnInit {
+export class SortComponent {
   @Output() sortBy = new EventEmitter<string>();
-  constructor() {}
-
-  ngOnInit(): void {}
+  show: boolean = false;
+  showHide() {
+    this.show = !this.show;
+  }
 }
