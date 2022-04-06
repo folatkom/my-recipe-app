@@ -46,22 +46,24 @@
       "rating": 5
     },
     {
-      "name": "sdddddd",
+      "name": "pizza",
       "description": [
-        "d"
+        "Zasypać drożdże cukrem, wlać szklankę wody",
+        "Wsypać mąkę, wyrobić ciasto i odstawić na godzinę",
+        "Piec w 200 st"
       ],
       "ingredients": [
         {
-          "name": "d",
-          "value": "d"
+          "name": "mąka",
+          "value": "3 szklanki"
         },
         {
-          "name": "",
-          "value": ""
+          "name": "drożdże",
+          "value": "25g"
         },
         {
-          "name": "",
-          "value": ""
+          "name": "cukier",
+          "value": "łyżeczka"
         }
       ],
       "rating": 3,

@@ -1,8 +1,5 @@
 <div id="container1">
-  <form (ngSubmit)="browse()">
-    <input type="text" [(ngModel)]="value" name="value" />
-    <button type="submit">szukaj</button>
-  </form>
+  <app-browser (browser)="browse($event)"></app-browser>
 
   <app-sort (sortBy)="sort($event)"></app-sort>
 </div>

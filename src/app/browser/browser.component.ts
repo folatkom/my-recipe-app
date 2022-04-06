@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-browser',
   templateUrl: './browser.component.html',
-  styleUrls: ['./browser.component.scss']
+  styleUrls: ['./browser.component.scss'],
 })
-export class BrowserComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class BrowserComponent {
+  @Output() browser = new EventEmitter<string>();
+  value: string = '';
 }
