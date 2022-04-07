@@ -1,9 +1,9 @@
 <a id="title" (click)="showHide()">Sortuj <span id="v">v</span></a>
 <ul *ngIf="show">
-  <li (click)="sortBy.emit('nameAsc')"><a>Nazwa A-Z</a></li>
-  <li (click)="sortBy.emit('nameDesc')"><a>Nazwa Z-A</a></li>
-  <li (click)="sortBy.emit('ratingDesc')"><a>Najlepsze</a></li>
-  <li (click)="sortBy.emit('ratingAsc')"><a>Najgorsze</a></li>
-  <li (click)="sortBy.emit('idDesc')"><a>Najnowsze</a></li>
-  <li (click)="sortBy.emit('idAsc')"><a>Najstarsze</a></li>
+  <li (click)="sortBy.emit(['name', 'asc'])"><a>Nazwa A-Z</a></li>
+  <li (click)="sortBy.emit(['name', 'desc'])"><a>Nazwa Z-A</a></li>
+  <li (click)="sortBy.emit(['rating', 'desc'])"><a>Najlepsze</a></li>
+  <li (click)="sortBy.emit(['rating', 'asc'])"><a>Najgorsze</a></li>
+  <li (click)="sortBy.emit(['id', 'desc'])"><a>Najnowsze</a></li>
+  <li (click)="sortBy.emit(['id', 'asc'])"><a>Najstarsze</a></li>
 </ul>

@@ -16,33 +16,12 @@ export class RecipesApiService {
   public addRecipes(newRecipe: Recipe) {
     return this.http.post(this.url, newRecipe);
   }
-  public browse(value: string) {
-    console.log(value);
+  public search(value: string) {
     const myParams = new HttpParams().set('q', value);
     return this.http.get<Recipe[]>(this.url, { params: myParams });
   }
-  public sortByNameDesc(): Observable<Recipe[]> {
-    const myParams = new HttpParams().set('_sort', 'name').set('_order', 'desc');
-    return this.http.get<Recipe[]>(this.url, { params: myParams });
-  }
-  public sortByNameAsc(): Observable<Recipe[]> {
-    const myParams = new HttpParams().set('_sort', 'name').set('_order', 'asc');
-    return this.http.get<Recipe[]>(this.url, { params: myParams });
-  }
-  public sortByRatingDesc(): Observable<Recipe[]> {
-    const myParams = new HttpParams().set('_sort', 'rating').set('_order', 'desc');
-    return this.http.get<Recipe[]>(this.url, { params: myParams });
-  }
-  public sortByRatingAsc(): Observable<Recipe[]> {
-    const myParams = new HttpParams().set('_sort', 'rating').set('_order', 'asc');
-    return this.http.get<Recipe[]>(this.url, { params: myParams });
-  }
-  public sortByIdAsc(): Observable<Recipe[]> {
-    const myParams = new HttpParams().set('_sort', 'id').set('_order', 'asc');
-    return this.http.get<Recipe[]>(this.url, { params: myParams });
-  }
-  public sortByIdDesc(): Observable<Recipe[]> {
-    const myParams = new HttpParams().set('_sort', 'id').set('_order', 'desc');
+  public sort(sorter: string, order: string): Observable<Recipe[]> {
+    const myParams = new HttpParams().set('_sort', sorter).set('_order', order);
     return this.http.get<Recipe[]>(this.url, { params: myParams });
   }
 }

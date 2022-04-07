@@ -6,7 +6,7 @@ import { Component, EventEmitter, Output } from '@angular/core';
   styleUrls: ['./sort.component.scss'],
 })
 export class SortComponent {
-  @Output() sortBy = new EventEmitter<string>();
+  @Output() sortBy = new EventEmitter<string[]>();
   show: boolean = false;
   showHide() {
     this.show = !this.show;

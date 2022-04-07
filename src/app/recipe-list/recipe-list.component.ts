@@ -27,30 +27,11 @@ export class RecipeListComponent implements OnInit {
     this.recipes = this.recipesApiService.getRecipes();
   }
   browse(value: string) {
-    this.recipes = this.recipesApiService.browse(value);
+    this.recipes = this.recipesApiService.search(value);
   }
 
-  sort(sortBy: string) {
-    switch (sortBy) {
-      case 'nameDesc':
-        this.recipes = this.recipesApiService.sortByNameDesc();
-        break;
-      case 'nameAsc':
-        this.recipes = this.recipesApiService.sortByNameAsc();
-        break;
-      case 'ratingDesc':
-        this.recipes = this.recipesApiService.sortByRatingDesc();
-        break;
-      case 'ratingAsc':
-        this.recipes = this.recipesApiService.sortByRatingAsc();
-        break;
-      case 'idAsc':
-        this.recipes = this.recipesApiService.sortByIdAsc();
-        break;
-      case 'idDesc':
-        this.recipes = this.recipesApiService.sortByIdDesc();
-        break;
-    }
+  sort(sortBy: string[]) {
+    this.recipes = this.recipesApiService.sort(sortBy[0], sortBy[1]);
   }
 
   onSelected(recipe: Recipe) {
