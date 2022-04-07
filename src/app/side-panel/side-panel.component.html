@@ -1,18 +1,13 @@
 <div>
-  <button
-    [ngClass]="{ active: panel === 'addRecipe' }"
-    (click)="panel = 'addRecipe'"
-  >
+  <button [ngClass]="{ active: panel === 'addRecipe' }" routerLink="/add">
     Dodaj przepis
   </button>
   <button
     [ngClass]="{ active: panel === 'recipeDetails' }"
-    (click)="panel = 'recipeDetails'"
+    routerLink="/recipes"
   >
     Szczegóły
   </button>
 </div>
 
-<p *ngIf="panel === 'addRecipe'; then add; else details"></p>
-<ng-template #add><app-add-recipe></app-add-recipe></ng-template>
-<ng-template #details><app-recipe-details></app-recipe-details></ng-template>
+<router-outlet></router-outlet>

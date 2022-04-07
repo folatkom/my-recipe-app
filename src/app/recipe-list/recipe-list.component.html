@@ -1,11 +1,15 @@
 <div id="container1">
   <app-browser (browser)="browse($event)"></app-browser>
-
   <app-sort (sortBy)="sort($event)"></app-sort>
 </div>
 <div id="container2" *ngIf="recipes | async as recipes; else nolist">
   <div class="tiles">
-    <a class="tile" *ngFor="let item of recipes" (click)="onSelected(item)">
+    <a
+      class="tile"
+      *ngFor="let item of recipes"
+      (click)="onSelected(item)"
+      routerLink="/recipes"
+    >
       <div>{{ item.name }}</div>
       <div>
         <span *ngFor="let e of [].constructor(item.rating)">🍔</span>
