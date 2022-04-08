@@ -11,7 +11,7 @@
     >
       <div>{{ item.name }}</div>
       <div>
-        <span *ngFor="let e of [].constructor(item.rating)">🍔</span>
+        <span> {{ "🍔".repeat(item.rating) }}</span>
       </div>
     </a>
   </div>
