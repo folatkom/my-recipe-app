@@ -8,13 +8,16 @@ import { Observable, of, tap } from 'rxjs';
 })
 export class RecipesApiService {
   constructor(private http: HttpClient) {}
-  url: string = 'http://localhost:3000/recipes';
+  url: string = 'http://localhost:3000/recipes/';
 
   public getRecipes() {
     return this.http.get<Recipe[]>(this.url);
   }
   public addRecipes(newRecipe: Recipe) {
     return this.http.post(this.url, newRecipe);
+  }
+  public getRecipe(id: string | null): Observable<Recipe> {
+    return this.http.get<Recipe>(this.url + id);
   }
   public search(value: string) {
     const myParams = new HttpParams().set('q', value);

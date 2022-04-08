@@ -1,13 +1,6 @@
 <div>
-  <button [ngClass]="{ active: panel === 'addRecipe' }" routerLink="/add">
-    Dodaj przepis
-  </button>
-  <button
-    [ngClass]="{ active: panel === 'recipeDetails' }"
-    routerLink="/recipes"
-  >
-    Szczegóły
-  </button>
+  <button routerLink="/add" routerLinkActive="active">Dodaj przepis</button>
+  <button routerLink="/recipes" routerLinkActive="active">Szczegóły</button>
 </div>
 
 <router-outlet></router-outlet>

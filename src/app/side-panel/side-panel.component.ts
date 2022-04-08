@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './side-panel.component.html',
   styleUrls: ['./side-panel.component.scss'],
 })
-export class SidePanelComponent {
-  panel = 'recipeDetails';
-}
+export class SidePanelComponent {}

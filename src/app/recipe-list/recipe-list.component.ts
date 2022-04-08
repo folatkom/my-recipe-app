@@ -1,6 +1,5 @@
 import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, of, Observable } from 'rxjs';
-import { CommunicationService } from '../communication.service';
 import { RecipesApiService } from '../recipes-api.service';
 export interface Recipe {
   name: string;
@@ -21,7 +20,7 @@ export interface Ingredients {
 export class RecipeListComponent implements OnInit {
   public recipes: Observable<Recipe[]>;
 
-  constructor(private recipesApiService: RecipesApiService, private communicationService: CommunicationService) {}
+  constructor(private recipesApiService: RecipesApiService) {}
 
   ngOnInit(): void {
     this.recipes = this.recipesApiService.getRecipes();
@@ -32,9 +31,5 @@ export class RecipeListComponent implements OnInit {
 
   sort(sortBy: string[]) {
     this.recipes = this.recipesApiService.sort(sortBy[0], sortBy[1]);
-  }
-
-  onSelected(recipe: Recipe) {
-    this.communicationService.recipeSelected.next(recipe);
   }
 }

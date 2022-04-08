@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { CommunicationService } from '../communication.service';
+import { ActivatedRoute, ParamMap } from '@angular/router';
+import { Observable, switchMap } from 'rxjs';
+
 import { Recipe } from '../recipe-list/recipe-list.component';
+import { RecipesApiService } from '../recipes-api.service';
 
 @Component({
   selector: 'app-recipe-details',
@@ -9,10 +11,11 @@ import { Recipe } from '../recipe-list/recipe-list.component';
   styleUrls: ['./recipe-details.component.scss'],
 })
 export class RecipeDetailsComponent implements OnInit {
+  recipeID = '';
   selectedRecipe: Observable<Recipe>;
-  constructor(private communicationService: CommunicationService) {}
+  constructor(private recipesApiService: RecipesApiService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.selectedRecipe = this.communicationService.recipeSelected;
+    this.selectedRecipe = this.route.paramMap.pipe(switchMap((params: ParamMap) => this.recipesApiService.getRecipe(params.get('id'))));
   }
 }
