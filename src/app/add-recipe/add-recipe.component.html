@@ -109,6 +109,18 @@
       />
     </div>
   </div>
+  <label>Ocena</label>
+  <div>
+    <input
+      type="number"
+      [(ngModel)]="newRecipe.rating"
+      name="rating"
+      min="1"
+      max="5"
+      required
+      #rating="ngModel"
+    />
+  </div>
   <button type="submit" [disabled]="form.invalid">Dodaj przepis</button>
   <button type="reset">Wyczyść formularz</button>
 </form>
