@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray, FormControl, Validators } from '@angular/forms';
 import { RecipesApiService } from '../recipes-api.service';
 
 @Component({
@@ -26,7 +26,7 @@ export class AddRecipeComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuild.group({
-      name: this.formBuild.control(''),
+      name: this.formBuild.control('', [Validators.required]),
       description: this.formBuild.array([this.formBuild.control('')]),
       ingredients: this.formBuild.array([
         this.formBuild.group({
