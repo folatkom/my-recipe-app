@@ -1,5 +1,5 @@
-import { Component, OnChanges, OnDestroy, OnInit } from '@angular/core';
-import { Subscription, of, Observable } from 'rxjs';
+import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { RecipesApiService } from '../recipes-api.service';
 export interface Recipe {
   name: string;

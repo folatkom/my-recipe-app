@@ -1,125 +1,46 @@
-<form (ngSubmit)="post()" #form="ngForm" autocomplete="off">
+<form [formGroup]="form" (ngSubmit)="post()" autocomplete="off">
   <label>Nazwa przepisu</label>
   <div>
-    <input
-      type="text"
-      placeholder="np. Pizza"
-      [(ngModel)]="newRecipe.name"
-      name="name"
-      minlength="3"
-      required
-      #name="ngModel"
-    />
-    <ng-container *ngIf="name.invalid">
-      <p *ngIf="name.dirty">Za krótka nazwa przepisu</p>
-      <p *ngIf="name.pristine && name.touched">Pole obowiązkowe</p>
-    </ng-container>
+    <input formControlName="name" type="text" placeholder="np. Pizza" />
   </div>
 
   <label>Składniki</label>
-  <div>
-    <input
-      class="smallInput"
-      type="text"
-      placeholder="np. Mąka"
-      [(ngModel)]="newRecipe.ingredients[0].name"
-      name="ingredient0name"
-      #ingredient0name="ngModel"
-      required
-    />
-    <input
-      class="smallInput"
-      type="text"
-      placeholder="np. 1 szklanka"
-      [(ngModel)]="newRecipe.ingredients[0].value"
-      name="ingredient0value"
-      #ingredient0value="ngModel"
-      required
-    />
-    <ng-container
-      *ngIf="
-        (ingredient0value.invalid && ingredient0value.touched) ||
-        (ingredient0name.invalid && ingredient0name.touched)
-      "
-      ><p>Pole obowiązkowe</p>
-    </ng-container>
+  <div formArrayName="ingredients">
+    <div *ngFor="let ingredient of ingredientsControls; let index = index">
+      <div [formGroup]="ingredient">
+        <input
+          formControlName="name"
+          class="smallInput"
+          type="text"
+          placeholder="np. Mąka"
+        />
+        <input
+          formControlName="value"
+          class="smallInput"
+          type="text"
+          placeholder="np. 1 szklanka"
+        />
+      </div>
+    </div>
   </div>
-  <div>
-    <input
-      class="smallInput"
-      type="text"
-      placeholder="np. Mąka"
-      [(ngModel)]="newRecipe.ingredients[1].name"
-      name="ingredient1name"
-    />
-    <input
-      class="smallInput"
-      type="text"
-      placeholder="np. 1 szklanka"
-      [(ngModel)]="newRecipe.ingredients[1].value"
-      name="ingredient1value"
-    />
-  </div>
-  <div>
-    <input
-      class="smallInput"
-      type="text"
-      placeholder="np. Mąka"
-      [(ngModel)]="newRecipe.ingredients[2].name"
-      name="ingredient2name"
-    />
-    <input
-      class="smallInput"
-      type="text"
-      placeholder="np. 1 szklanka"
-      [(ngModel)]="newRecipe.ingredients[2].value"
-      name="ingredient2value"
-    />
-  </div>
+  <button type="button" (click)="addIngredient()">Dodaj składnik</button>
 
   <div>
     <label>Sposób przygotowania</label>
-    <div>
-      <input
-        type="text"
-        placeholder="Krok 1"
-        [(ngModel)]="newRecipe.description[0]"
-        name="description0"
-        #description0="ngModel"
-        required
-      />
-      <ng-container *ngIf="description0.invalid && description0.touched"
-        ><p>Pole obowiązkowe</p>
-      </ng-container>
+    <div formArrayName="description">
+      <div *ngFor="let description of descriptionControls; let index = index">
+        <input
+          [formControlName]="index"
+          type="text"
+          placeholder="np. Wyrób ciasto"
+        />
+      </div>
     </div>
-    <div>
-      <input
-        type="text"
-        placeholder="Krok 2"
-        [(ngModel)]="newRecipe.description[1]"
-        name="description1"
-      />
-    </div>
-    <div>
-      <input
-        type="text"
-        placeholder="Krok 3"
-        [(ngModel)]="newRecipe.description[2]"
-        name="description2"
-      />
-    </div>
+    <button type="button" (click)="addDescription()">Dodaj krok</button>
   </div>
   <label>Ocena</label>
   <div>
-    <input
-      type="number"
-      [(ngModel)]="newRecipe.rating"
-      name="rating"
-      min="1"
-      max="5"
-      required
-      #rating="ngModel"
-    />
+    <input type="number" formControlName="rating" />
   </div>
   <button type="submit" [disabled]="form.invalid">Dodaj przepis</button>
   <button type="reset">Wyczyść formularz</button>

@@ -8,7 +8,7 @@ import { RecipeListComponent } from './recipe-list/recipe-list.component';
 import { SidePanelComponent } from './side-panel/side-panel.component';
 import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
 import { AddRecipeComponent } from './add-recipe/add-recipe.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SortComponent } from './sort/sort.component';
 import { BrowserComponent } from './browser/browser.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -24,7 +24,7 @@ import { AppRoutingModule } from './app-routing.module';
     SortComponent,
     BrowserComponent,
   ],
-  imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutingModule],
+  imports: [BrowserModule, HttpClientModule, FormsModule, AppRoutingModule, ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
 })
