@@ -20,7 +20,7 @@ export class AddRecipeComponent implements OnInit {
     return this.form.controls['description'] as FormArray;
   }
   get descriptionControls() {
-    return this.descriptionFormArray.controls as FormGroup[];
+    return this.descriptionFormArray.controls as FormControl[];
   }
   constructor(private recipesApiService: RecipesApiService, private formBuild: FormBuilder) {}
 
