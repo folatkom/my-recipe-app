@@ -3,7 +3,13 @@
   <div>
     <input formControlName="name" type="text" placeholder="np. Pizza" />
   </div>
-
+  <div class="errorMessage">
+    <ng-container
+      *ngIf="form.controls['name'].touched && form.controls['name'].invalid"
+    >
+      <p>Pole obowiązkowe</p>
+    </ng-container>
+  </div>
   <label>Składniki</label>
   <div formArrayName="ingredients">
     <div *ngFor="let ingredient of ingredientsControls; let index = index">
