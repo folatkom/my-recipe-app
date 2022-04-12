@@ -12,10 +12,10 @@ import { RecipesApiService } from '../recipes-api.service';
 })
 export class RecipeDetailsComponent implements OnInit {
   recipeID = '';
-  selectedRecipe: Observable<Recipe>;
+  selectedRecipe$: Observable<Recipe>;
   constructor(private recipesApiService: RecipesApiService, private route: ActivatedRoute) {}
 
   ngOnInit() {
-    this.selectedRecipe = this.route.paramMap.pipe(switchMap((params: ParamMap) => this.recipesApiService.getRecipe(params.get('id'))));
+    this.selectedRecipe$ = this.route.paramMap.pipe(switchMap((params: ParamMap) => this.recipesApiService.getRecipe(params.get('id'))));
   }
 }

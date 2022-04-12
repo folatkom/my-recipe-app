@@ -1,4 +1,4 @@
-<div *ngIf="selectedRecipe | async as selectedRecipe; else norecipe">
+<div *ngIf="selectedRecipe$ | async as selectedRecipe; else norecipe">
   <h2>{{ selectedRecipe.name | uppercase }}</h2>
   <h3>Składniki:</h3>
   <ul>

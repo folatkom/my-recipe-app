@@ -18,18 +18,18 @@ export interface Ingredients {
   styleUrls: ['./recipe-list.component.scss'],
 })
 export class RecipeListComponent implements OnInit {
-  public recipes: Observable<Recipe[]>;
+  public recipes$: Observable<Recipe[]>;
 
   constructor(private recipesApiService: RecipesApiService) {}
 
   ngOnInit(): void {
-    this.recipes = this.recipesApiService.getRecipes();
+    this.recipes$ = this.recipesApiService.getRecipes();
   }
   browse(value: string) {
-    this.recipes = this.recipesApiService.search(value);
+    this.recipes$ = this.recipesApiService.search(value);
   }
 
   sort(sortBy: string[]) {
-    this.recipes = this.recipesApiService.sort(sortBy[0], sortBy[1]);
+    this.recipes$ = this.recipesApiService.sort(sortBy[0], sortBy[1]);
   }
 }
