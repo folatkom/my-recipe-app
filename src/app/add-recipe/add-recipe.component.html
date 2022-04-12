@@ -20,6 +20,9 @@
           type="text"
           placeholder="np. 1 szklanka"
         />
+        <button (click)="removeItem(ingredientsFormArray, index)" type="button">
+          Usuń
+        </button>
       </div>
     </div>
   </div>
@@ -29,11 +32,15 @@
     <label>Sposób przygotowania</label>
     <div formArrayName="description">
       <div *ngFor="let description of descriptionControls; let index = index">
+        {{ index + 1 }}
         <input
           [formControlName]="index"
           type="text"
           placeholder="np. Wyrób ciasto"
         />
+        <button (click)="removeItem(descriptionFormArray, index)" type="button">
+          Usuń
+        </button>
       </div>
     </div>
     <button type="button" (click)="addDescription()">Dodaj krok</button>

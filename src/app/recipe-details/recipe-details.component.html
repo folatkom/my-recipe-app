@@ -12,7 +12,7 @@
   <h3>Sposób przygotowania:</h3>
   <ul>
     <li *ngFor="let step of selectedRecipe.description; let i = index">
-      {{ selectedRecipe.description[i] }}
+      {{ i + 1 }}. {{ selectedRecipe.description[i] }}
     </li>
   </ul>
 </div>

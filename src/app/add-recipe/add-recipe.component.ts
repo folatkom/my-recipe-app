@@ -1,6 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormArray, FormControl } from '@angular/forms';
-import { Recipe } from '../recipe-list/recipe-list.component';
 import { RecipesApiService } from '../recipes-api.service';
 
 @Component({
@@ -8,7 +7,7 @@ import { RecipesApiService } from '../recipes-api.service';
   templateUrl: './add-recipe.component.html',
   styleUrls: ['./add-recipe.component.scss'],
 })
-export class AddRecipeComponent implements OnInit, OnDestroy {
+export class AddRecipeComponent implements OnInit {
   form!: FormGroup;
 
   get ingredientsFormArray() {
@@ -54,5 +53,7 @@ export class AddRecipeComponent implements OnInit, OnDestroy {
   public addDescription() {
     this.descriptionFormArray.push(new FormControl(''));
   }
-  ngOnDestroy(): void {}
+  public removeItem(array: FormArray, index: number) {
+    array.removeAt(index);
+  }
 }
