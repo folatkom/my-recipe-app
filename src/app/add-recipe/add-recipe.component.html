@@ -26,9 +26,22 @@
           type="text"
           placeholder="np. 1 szklanka"
         />
+
         <button (click)="removeItem(ingredientsFormArray, index)" type="button">
           Usuń
         </button>
+      </div>
+      <div class="errorMessage">
+        <ng-container
+          *ngIf="
+            (ingredient.controls['name'].touched &&
+              ingredient.controls['name'].invalid) ||
+            (ingredient.controls['value'].touched &&
+              ingredient.controls['value'].invalid)
+          "
+        >
+          <p>Pole obowiązkowe</p>
+        </ng-container>
       </div>
     </div>
   </div>
@@ -44,16 +57,30 @@
           type="text"
           placeholder="np. Wyrób ciasto"
         />
+
         <button (click)="removeItem(descriptionFormArray, index)" type="button">
           Usuń
         </button>
+        <div class="errorMessage">
+          <ng-container *ngIf="description.touched && description.invalid">
+            <p>Pole obowiązkowe</p>
+          </ng-container>
+        </div>
       </div>
     </div>
     <button type="button" (click)="addDescription()">Dodaj krok</button>
   </div>
+
   <label>Ocena</label>
   <div>
-    <input type="number" formControlName="rating" />
+    <input type="number" formControlName="rating" placeholder="od 1 do 5" />
+  </div>
+  <div class="errorMessage">
+    <ng-container
+      *ngIf="form.controls['rating'].touched && form.controls['rating'].invalid"
+    >
+      <p>Pole obowiązkowe</p>
+    </ng-container>
   </div>
   <button type="submit" [disabled]="form.invalid">Dodaj przepis</button>
   <button type="reset">Wyczyść formularz</button>

@@ -11,9 +11,10 @@ input {
 .smallInput {
   width: 100px;
 }
-.ng-invalid.ng-touched:not(form) {
-  border: 2px solid red;
-  border-radius: 4px;
+.ng-invalid.ng-touched:not(form)::placeholder {
+  // border: 2px solid red;
+  // border-radius: 4px;
+  color: red;
 }
 p {
   color: red;

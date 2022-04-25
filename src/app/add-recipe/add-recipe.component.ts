@@ -27,31 +27,31 @@ export class AddRecipeComponent implements OnInit {
   ngOnInit(): void {
     this.form = this.formBuild.group({
       name: this.formBuild.control('', [Validators.required]),
-      description: this.formBuild.array([this.formBuild.control('')]),
+      description: this.formBuild.array([this.formBuild.control('', [Validators.required])]),
       ingredients: this.formBuild.array([
         this.formBuild.group({
-          name: this.formBuild.control(''),
-          value: this.formBuild.control(''),
+          name: this.formBuild.control('', [Validators.required]),
+          value: this.formBuild.control('', [Validators.required]),
         }),
       ]),
-      rating: this.formBuild.control(''),
+      rating: this.formBuild.control('', [Validators.required]),
     });
   }
 
   post() {
-    console.log(this.form.value);
     this.recipesApiService.addRecipes(this.form.value).subscribe();
+    //this.recipesApiService.updateRecipeList(this.form.value);
   }
   public addIngredient() {
     this.ingredientsFormArray.push(
       new FormGroup({
-        name: this.formBuild.control(''),
-        value: this.formBuild.control(''),
+        name: this.formBuild.control('', [Validators.required]),
+        value: this.formBuild.control('', [Validators.required]),
       })
     );
   }
   public addDescription() {
-    this.descriptionFormArray.push(new FormControl(''));
+    this.descriptionFormArray.push(new FormControl('', [Validators.required]));
   }
   public removeItem(array: FormArray, index: number) {
     array.removeAt(index);

@@ -1,12 +1,13 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Recipe } from './recipe-list/recipe-list.component';
-import { Observable, of, tap } from 'rxjs';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RecipesApiService {
+  // public recipeList$ = new BehaviorSubject<Recipe[]>([]);
   constructor(private http: HttpClient) {}
   url: string = 'http://localhost:3000/recipes/';
 
@@ -27,4 +28,7 @@ export class RecipesApiService {
     const myParams = new HttpParams().set('_sort', sorter).set('_order', order);
     return this.http.get<Recipe[]>(this.url, { params: myParams });
   }
+  // public updateRecipeList(recipe: Recipe) {
+  //   return this.recipeList$.next([...this.recipeList$.value, recipe]);
+  // }
 }
